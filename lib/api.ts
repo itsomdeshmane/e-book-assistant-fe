@@ -19,8 +19,21 @@ import type {
 
 const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://127.0.0.1:8000';
 
+// Ensure the API URL has a protocol
+const normalizedApiUrl = API_URL.startsWith('http://') || API_URL.startsWith('https://') 
+  ? API_URL 
+  : `https://${API_URL}`;
+
+// Debug logging to help troubleshoot URL issues
+if (typeof window !== 'undefined') {
+  console.log('🔍 API Configuration Debug:');
+  console.log('NEXT_PUBLIC_API_BASE_URL:', process.env.NEXT_PUBLIC_API_BASE_URL);
+  console.log('Original API_URL:', API_URL);
+  console.log('Normalized API_URL:', normalizedApiUrl);
+}
+
 export const api = axios.create({
-  baseURL: API_URL,
+  baseURL: normalizedApiUrl,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -31,6 +44,15 @@ api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   if (token && config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  
+  // Debug logging for request URLs
+  if (typeof window !== 'undefined') {
+    console.log('🌐 API Request Debug:');
+    console.log('Base URL:', config.baseURL);
+    console.log('Full URL:', config.url);
+    console.log('Complete URL:', `${config.baseURL}${config.url}`);
+  }
+  
   return config;
 });
 

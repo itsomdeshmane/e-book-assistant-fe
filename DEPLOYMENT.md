@@ -43,7 +43,7 @@ Vercel is the optimal choice for Next.js applications with built-in optimization
 
 #### Environment Variables for Vercel:
 ```env
-NEXT_PUBLIC_API_URL=https://your-api-domain.com
+NEXT_PUBLIC_API_BASE_URL=https://your-api-domain.com
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
@@ -260,7 +260,7 @@ docker run -p 3000:3000 e-book-assistant-fe
 
 ### Required Variables:
 ```env
-NEXT_PUBLIC_API_URL=https://your-api-domain.com
+NEXT_PUBLIC_API_BASE_URL=https://your-api-domain.com
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```

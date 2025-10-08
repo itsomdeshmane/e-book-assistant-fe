@@ -49,7 +49,7 @@ export function PdfUploaderExample() {
           <PdfUploader
             onCreated={handleDocumentCreated}
             onProcessed={handleDocumentProcessed}
-            maxSizeMB={50}
+            maxSizeMB={3}
             className="w-full"
           />
         </CardContent>
@@ -61,7 +61,7 @@ export function PdfUploaderExample() {
           <CardTitle className="text-lg">How to Use</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-gray-600">
-          <p>1. <strong>Select or drag</strong> a PDF file (max 50MB)</p>
+          <p>1. <strong>Select or drag</strong> a PDF file (max 3MB)</p>
           <p>2. <strong>Preview</strong> the first page thumbnail</p>
           <p>3. <strong>Upload</strong> and watch real-time progress</p>
           <p>4. <strong>Wait</strong> for processing with exponential backoff polling</p>
@@ -78,7 +78,7 @@ export function MinimalPdfUploaderExample() {
     <PdfUploader
       onCreated={(docId) => console.log('Created:', docId)}
       onProcessed={(doc) => console.log('Processed:', doc)}
-      maxSizeMB={25}
+      maxSizeMB={3}
     />
   );
 }

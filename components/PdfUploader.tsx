@@ -38,7 +38,7 @@ interface UploadResponse {
 export function PdfUploader({ 
   onCreated, 
   onProcessed, 
-  maxSizeMB = 50,
+  maxSizeMB = 3,
   className = '' 
 }: PdfUploaderProps) {
   // State management

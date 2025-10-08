@@ -21,8 +21,8 @@ export function FileUploader({ onUploadComplete }: FileUploaderProps) {
   const uploadMutation = useUploadDocument();
 
   // File size thresholds (in MB)
-  const LARGE_FILE_THRESHOLD = 10;
-  const MAX_FILE_SIZE = 100;
+  const LARGE_FILE_THRESHOLD = 2;
+  const MAX_FILE_SIZE = 3;
 
   const handleFileSelect = useCallback((file: File) => {
     // Validate filename extension
